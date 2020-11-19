@@ -122,3 +122,23 @@ Para poder agregarle estilos a un select hay que agregarle esta propiedad para l
         color: $gris2;
     }
 ```
+
+Lo siguiente que tenemos que hacer es validar los dos formularios, lo haremos de la siguiete forma
+
+```
+const inputs = document.querySelectorAll('form .campo input');
+console.log(inputs)
+
+inputs.forEach(input=> {
+    input.addEventListener('blur', validarInput);
+});
+inputs.forEach(input=> {
+    input.addEventListener('input', validarInput);
+});
+```
+
+Para poner el error entre los dos divs de los campos utilizamos
+
+```
+e.target.parentElement.parentElement.insertBefore(errorDiv, e.target.parentElement.nextElementSibling);
+```
